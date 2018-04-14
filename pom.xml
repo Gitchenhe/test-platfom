@@ -4,12 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.chenhe</groupId>
-	<artifactId>test-platfom</artifactId>
+	<artifactId>test-platform</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>test-platfom</name>
+	<name>test-platform</name>
 	<description>代码测试平台</description>
+
+	<modules>
+		<module>test-platform-app</module>
+	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
