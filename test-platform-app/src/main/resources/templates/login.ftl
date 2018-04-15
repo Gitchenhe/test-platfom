@@ -20,24 +20,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="login-block">
             <form id="form" class="demoform">
                 <input type="text" name="email" placeholder="Account" id="userName" datatype="s5-16" errormsg="请输入账号">
-                <input type="password" name="password" class="lock" id="password" placeholder="Password" datatype="*6-15" errormsg="请输入密码">
-                <#--<div class="forgot-top-grids">
-                    <div class="forgot-grid">
-                        <ul>
-                            <li>
-                                <input type="checkbox" id="brand1" value="">
-                                <label for="brand1"><span></span>Remember me</label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="forgot">
-                        <a href="#">Forgot password?</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>-->
+                <input type="password" name="password" class="lock" id="password" placeholder="Password"
+                       datatype="*6-15" errormsg="请输入密码">
+            <#--<div class="forgot-top-grids">
+                <div class="forgot-grid">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1"><span></span>Remember me</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="forgot">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>-->
                 <input type="button" id="btnSubmit" value="Login">
-                <#--<h3>Not a member?<a href="signup.html"> Sign up now</a></h3>
-                <h2>or login with</h2>-->
+            <#--<h3>Not a member?<a href="signup.html"> Sign up now</a></h3>
+            <h2>or login with</h2>-->
                 <div class="login-icons">
                     <ul>
                         <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -58,20 +59,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var account = $('#userName');
         var password = $('#password');
 
-        if (!account.val() || !password.val()){
+        if (!account.val() || !password.val()) {
             return;
         }
 
         $.ajax({
-            url:'${contextPath}/doLogin',
-            type:'post',
-            data:{
-                account:account.val(),
-                password:password.val()
+            url: '${contextPath}/doLogin',
+            type: 'post',
+            data: {
+                account: account.val(),
+                password: password.val()
             },
-            success:function (data) {
-                if (data.success){
-                    window.location.href = "${contextPath}"+data.data;
+            success: function (data) {
+                if (data.success) {
+                    window.location.href = "${contextPath}" + data.data;
+                } else {
+                    alert(data.message);
                 }
             }
 

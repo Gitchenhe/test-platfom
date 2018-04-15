@@ -14,7 +14,7 @@ public class MenuController {
     Logger logger = LoggerFactory.getLogger(MenuController.class);
 
     @RequestMapping("menu")
-    public String menu(String uid,HttpServletRequest request, HttpServletResponse response){
+    public String menu(String uid, HttpServletRequest request, HttpServletResponse response) {
         logger.info(request.getSession().getId());
         return "menu";
     }

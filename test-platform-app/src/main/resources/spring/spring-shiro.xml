@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 必须设置 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 可选 -->
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/menu"/>
+
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 对静态资源设置匿名访问 -->
+                /statics/** = anon
+                /login=anon
+                /doLogin=anon
+                <!-- authc 所有url都必须认证通过才可访问 -->
+                /**=authc
+            </value>
+        </property>
+    </bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="customRealm"/>
+    </bean>
+
+    <bean id="customRealm" class="com.chenhe.shiro.CustomRealm"/>
+    <!-- 保证实现了Shiro 内部lifecycle 函数的Bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+</beans>

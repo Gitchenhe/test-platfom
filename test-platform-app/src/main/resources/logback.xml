@@ -6,27 +6,27 @@ debug : 此属性为true时,将打印logback内部日志信息,实时查看logba
 -->
 <configuration scan="true" scanPeriod="600000" debug="false">
 
-  <!-- 用来定义变量值 -->
-  <property name="contextName" value="springboot"/>
-  <!-- 用来设置上下文名称,每个logger都关联到logger上下文,默认default,一旦设置不可修改 -->
-  <contextName>${contextName}</contextName>
+    <!-- 用来定义变量值 -->
+    <property name="contextName" value="test-platform"/>
+    <!-- 用来设置上下文名称,每个logger都关联到logger上下文,默认default,一旦设置不可修改 -->
+    <contextName>${contextName}</contextName>
 
-  <!-- 获取时间戳字符串 datePattern 设置当前时间转换为字符串的模式 -->
-  <timestamp key="bySecond" datePattern="yyyy-MM-dd HH:mm:ss"/>
+    <!-- 获取时间戳字符串 datePattern 设置当前时间转换为字符串的模式 -->
+    <timestamp key="bySecond" datePattern="yyyy-MM-dd HH:mm:ss"/>
 
-  <!-- 负责写日志的组件 -->
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <!-- 对日志格式化 -->
-    <encoder>
-      <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
-      <charset>gbk</charset>
-    </encoder>
-  </appender>
+    <!-- 负责写日志的组件 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 对日志格式化 -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+            <charset>gbk</charset>
+        </encoder>
+    </appender>
 
-  <root level="info">
-    <appender-ref ref="STDOUT"/>
-  </root>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
 
-  <!-- 设置某一个包的日志级别 -->
-  <!--<logger name="com.chenhe" level="debug"></logger>-->
+    <!-- 设置某一个包的日志级别 -->
+    <!--<logger name="com.chenhe" level="debug"></logger>-->
 </configuration>

@@ -2,6 +2,11 @@ package com.chenhe.controller;
 
 import com.chenhe.base.AjaxResult;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +27,7 @@ import java.io.IOException;
 public class LoginController {
     @RequestMapping("login")
     public String loginPage(Model model) {
-        model.addAttribute("msg","请登录");
+        model.addAttribute("msg", "请登录");
         return "login";
     }
 
@@ -30,13 +35,17 @@ public class LoginController {
     @ResponseBody
     public AjaxResult doLogin(String account, String password, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AjaxResult ajaxResult = new AjaxResult();
-        if (StringUtils.equals(account,"admin") && StringUtils.equals(password,"123456")){
+
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(account, password);
+
+        try {
+            subject.login(token);
             ajaxResult.setSuccess(true);
-            String sessionId = request.getSession().getId();
-            ajaxResult.setData("/menu?uid="+sessionId);
-        }else {
+            ajaxResult.setData("/menu");
+        } catch (AuthenticationException ex) {
             ajaxResult.setSuccess(false);
-            ajaxResult.setMessage("用户名或密码错误");
+            ajaxResult.setMessage("身份认证失败!");
         }
         return ajaxResult;
     }

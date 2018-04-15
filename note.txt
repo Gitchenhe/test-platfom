@@ -1,0 +1,10 @@
+1. 静态资源无法访问. 参考:https://www.cnblogs.com/magicalSam/p/7189476.html
+    注意: 参考代码中的WebMvcConfigurerAdapter已经过时, 改用新的 WebMvcConfigurationSupport
+
+2.增加druid连接池
+3.增加mybaits
+    遇到的问题:
+    无法注入Mapper,参考 https://blog.csdn.net/u012012240/article/details/51252560,
+        配置org.mybatis.spring.mapper.MapperScannerConfigurer
+    报错:Invalid bound statement (not found): com.chenhe.service.account.AccountService.queryUser
+        原因:MapperScannerConfigurer 配置的 basePackage有问题.另外,mapper.xml文件要与接口文件在一块,(之前mapper放到resource下)
