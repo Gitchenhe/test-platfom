@@ -1,0 +1,2 @@
+1. 静态资源无法访问. 参考:https://www.cnblogs.com/magicalSam/p/7189476.html
+    注意: 参考代码中的WebMvcConfigurerAdapter已经过时, 改用新的 WebMvcConfigurationSupport
