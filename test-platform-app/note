@@ -1,0 +1,2 @@
+1. 上一个版本中,能正常显示html.本次版本中,做一个登录界面.遇到的问题如下:
+   a. freemarker怎么获contextPath? 参考https://segmentfault.com/a/1190000002967105

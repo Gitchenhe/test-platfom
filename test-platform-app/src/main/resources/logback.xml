@@ -13,12 +13,13 @@ debug : 此属性为true时,将打印logback内部日志信息,实时查看logba
 
     <!-- 获取时间戳字符串 datePattern 设置当前时间转换为字符串的模式 -->
     <timestamp key="bySecond" datePattern="yyyy-MM-dd HH:mm:ss"/>
-
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %cyan(%msg%n)"/>
     <!-- 负责写日志的组件 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 对日志格式化 -->
         <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
             <charset>gbk</charset>
         </encoder>
     </appender>

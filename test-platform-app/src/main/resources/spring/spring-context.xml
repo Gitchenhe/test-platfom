@@ -8,4 +8,9 @@
 
     <import resource="spring-shiro.xml"/>
     <import resource="spring-datasource.xml"/>
+
+    <bean class="com.chenhe.listener.User" id="user">
+        <property name="name" value="陈贺" />
+        <property name="age" value="21" />
+    </bean>
 </beans>

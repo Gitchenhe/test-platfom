@@ -14,6 +14,9 @@ import org.springframework.context.annotation.ImportResource;
 public class Application extends SpringBootServletInitializer { //tomcat启动springboot项目,必须继承SpringBootServletInitializer
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication application = new SpringApplication(Application.class);
+        application.setLogStartupInfo(false);
+        application.run(args);
+        System.out.println("-----------------");
     }
 }
