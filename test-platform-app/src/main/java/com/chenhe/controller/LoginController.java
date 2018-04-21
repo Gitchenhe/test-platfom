@@ -5,6 +5,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,12 +33,12 @@ public class LoginController {
 
     @PostMapping(value = "doLogin")
     @ResponseBody
-    public AjaxResult doLogin(String account, String password, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public AjaxResult doLogin(String account, String password, @Nullable boolean rememberMe, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AjaxResult ajaxResult = new AjaxResult();
 
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(account, password);
-
+        token.setRememberMe(rememberMe);
         try {
             subject.login(token);
             ajaxResult.setSuccess(true);

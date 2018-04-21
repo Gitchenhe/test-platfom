@@ -5,18 +5,22 @@ package com.chenhe.service.transaction;
  * @Date 2018-04-17 18:11
  * @desc 测试事务的传播行为
  **/
-public interface TansactionTestService {
+public interface TransactionTestService {
     /**
      * PROPAGATION_REQUIRE : 事务不存在,则创建事务
-     * @param exist 事务是否存在
+     * @param param 事务,异常要求
      */
-    void testRequire(boolean exist);
+    void testRequire(TransactionParam param);
 
     /**
      * PROPAGATION_REQUIRE_NEW: 创建一个新的事务,如果当前存在事务,则把当前事务挂起
-     * @param exist
+     * @param param 事务,异常要求
      */
-    void testRequireNew(boolean exist);
+    void testRequireNew(TransactionParam param);
 
-    void testSupports(boolean exist);
+    /**
+     *
+     * @param param 事务,异常要求
+     */
+    void testSupports(TransactionParam param);
 }

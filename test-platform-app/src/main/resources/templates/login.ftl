@@ -22,7 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="text" name="email" placeholder="Account" id="userName" datatype="s5-16" errormsg="请输入账号">
                 <input type="password" name="password" class="lock" id="password" placeholder="Password"
                        datatype="*6-15" errormsg="请输入密码">
-            <#--<div class="forgot-top-grids">
+            <div class="forgot-top-grids">
                 <div class="forgot-grid">
                     <ul>
                         <li>
@@ -31,11 +31,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                     </ul>
                 </div>
-                <div class="forgot">
+               <#-- <div class="forgot">
                     <a href="#">Forgot password?</a>
-                </div>
+                </div>-->
                 <div class="clearfix"></div>
-            </div>-->
+            </div>
                 <input type="button" id="btnSubmit" value="Login">
             <#--<h3>Not a member?<a href="signup.html"> Sign up now</a></h3>
             <h2>or login with</h2>-->
