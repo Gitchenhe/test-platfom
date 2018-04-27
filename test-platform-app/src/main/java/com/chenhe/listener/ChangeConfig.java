@@ -1,5 +1,8 @@
 package com.chenhe.listener;
 
+import com.chenhe.util.SpringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.mgt.SecurityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

@@ -34,5 +34,6 @@ public class Application {
 		MysqlDBEntity dbEntity = new MysqlDBEntity();
 		dbEntity.setId(1);
 		mysqlDB.save(dbEntity);
+
 	}
 }

@@ -8,3 +8,10 @@
         配置org.mybatis.spring.mapper.MapperScannerConfigurer
     报错:Invalid bound statement (not found): com.chenhe.service.account.AccountService.queryUser
         原因:MapperScannerConfigurer 配置的 basePackage有问题.另外,mapper.xml文件要与接口文件在一块,(之前mapper放到resource下)
+
+3.org.apache.shiro.SecurityUtils 的 SecurityManager 为空.
+      解决办法:Spring-shiro.xml中增加
+          <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+              <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+              <property name="arguments" ref="securityManager"/>
+          </bean>

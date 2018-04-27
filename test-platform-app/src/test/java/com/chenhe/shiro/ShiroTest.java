@@ -4,6 +4,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 import org.junit.Test;
@@ -29,7 +30,10 @@ public class ShiroTest {
             System.err.println("用户身份认证失败");
             e.printStackTrace();
         }
-
+        Session session = subject.getSession();
+        System.out.println("session.host:"+session.getHost());
+        System.out.println("session id:"+session.getId());
+        System.out.println("session timeout:"+session.getTimeout());
         if (subject.isAuthenticated()) {
             System.out.println("登录成功");
         } else {
