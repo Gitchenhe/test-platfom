@@ -23,8 +23,8 @@ public class TransactionController {
     @ResponseBody
     public String transactionTest(@PathVariable(value = "transaction" ,required = false) boolean transaction,@PathVariable(value = "exception",required = false) boolean exception){
         TransactionParam param = new TransactionParam();
-        param.setExistTransaction(true);
-        param.setThrowException(true);
+        param.setExistTransaction(transaction);
+        param.setThrowException(exception);
         transactionTestService.testRequire(param);
         return "ok";
     }

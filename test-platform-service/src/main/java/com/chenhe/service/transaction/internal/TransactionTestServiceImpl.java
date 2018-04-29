@@ -33,6 +33,10 @@ public class TransactionTestServiceImpl implements TransactionTestService {
         }
     }
 
+    /**
+     * PROPAGATION_REQUIRE_NEW: 创建一个新的事务,如果当前存在事务,则把当前事务挂起
+     * @param param 事务,异常要求
+     */
     @Override
     public void testRequireNew(TransactionParam param) {
 
@@ -44,7 +48,7 @@ public class TransactionTestServiceImpl implements TransactionTestService {
     }
 
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = RuntimeException.class)
     public void operationWithTrans(boolean throwExcepation){
         insert("人为异常,包含事务");
         if (throwExcepation){

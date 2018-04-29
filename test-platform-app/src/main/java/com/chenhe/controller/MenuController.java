@@ -1,6 +1,5 @@
 package com.chenhe.controller;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,7 @@ public class MenuController {
 
     @RequestMapping("menu")
     public String menu(String uid, HttpServletRequest request, HttpServletResponse response) {
-        logger.info(request.getSession().getId());
+        //logger.info(request.getSession().getId());
         return "menu";
     }
 }

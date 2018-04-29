@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="delayTaskThread" class="com.chenhe.thread.DelayTaskThread">
+        <property name="threadName" value="delayTaskThread"/>
+    </bean>
+
+    <bean id="threadPool" class="com.chenhe.thread.ThreadPool" init-method="initThread">
+        <property name="threadMap">
+            <map>
+               <entry key="delayTaskThread" value="3" />
+            </map>
+        </property>
+    </bean>
+</beans>

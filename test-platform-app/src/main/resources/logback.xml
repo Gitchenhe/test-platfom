@@ -29,5 +29,5 @@ debug : 此属性为true时,将打印logback内部日志信息,实时查看logba
     </root>
 
     <!-- 设置某一个包的日志级别 -->
-    <!--<logger name="com.chenhe" level="debug"></logger>-->
+    <logger name="com.chenhe.service.mapper" level="debug"></logger>
 </configuration>
