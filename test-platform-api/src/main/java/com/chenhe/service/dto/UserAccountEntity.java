@@ -10,7 +10,10 @@ public class UserAccountEntity {
     private Date createTime;
     private Date updateTime;
     private String userName;
+    private String status;
+    private String type;
     private String remark;
+
 
     public int getId() {
         return id;
@@ -74,5 +77,21 @@ public class UserAccountEntity {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

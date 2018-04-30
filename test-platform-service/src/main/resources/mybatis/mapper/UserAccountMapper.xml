@@ -7,4 +7,31 @@
       select * from t_useraccount where account = #{account} and password = #{password}
     </select>
 
+    <select id="queryUser" parameterType="com.chenhe.service.member.param.QueryUserParam" resultType="com.chenhe.service.dto.UserAccountEntity">
+      select * from t_useraccount
+      <where>
+          1=1
+          <if test="id != null and id !=0">
+              and id = #{id}
+          </if>
+          <if test="account != null and account != ''">
+              and account = #{account}
+          </if>
+          <if test="userName != null and userName != ''">
+              and user_name = #{userName}
+          </if>
+          <if test="createTimeBegin != null">
+              and create_time > #{createTimeBegin}
+          </if>
+          <if test="createTimeEnd != null">
+              and create_time &lt;= #{createTimeEnd}
+          </if>
+          <if test="status != null and status != ''">
+              and status = #{status}
+          </if>
+          <if test="type != null and type != ''">
+              and type = #{type}
+          </if>
+      </where>
+    </select>
 </mapper>

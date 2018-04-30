@@ -15,6 +15,6 @@ public class MenuController {
     @RequestMapping("menu")
     public String menu(String uid, HttpServletRequest request, HttpServletResponse response) {
         //logger.info(request.getSession().getId());
-        return "menu";
+        return "index";
     }
 }

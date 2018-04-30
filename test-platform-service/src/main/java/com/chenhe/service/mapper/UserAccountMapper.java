@@ -1,7 +1,10 @@
 package com.chenhe.service.mapper;
 
 import com.chenhe.service.dto.UserAccountEntity;
+import com.chenhe.service.member.param.QueryUserParam;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 账号表操作类
@@ -15,5 +18,7 @@ public interface UserAccountMapper {
      * @return
      */
     UserAccountEntity selectUser(@Param("account") String account, @Param("password") String password);
+
+    List<UserAccountEntity> queryUser(QueryUserParam entity);
 
 }

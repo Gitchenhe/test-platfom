@@ -20,7 +20,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/statics/**").addResourceLocations("classpath:/statics/");
     }
 
-    @Bean
+    //@Bean
     public FilterRegistrationBean siteMeshFilter(){
         FilterRegistrationBean fitler = new FilterRegistrationBean();
         WebSiteMeshFilter siteMeshFilter = new WebSiteMeshFilter();
