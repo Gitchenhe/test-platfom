@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Date 2018-04-28 17:46
  * @desc
  **/
-public class NotifyDelayQueue implements Serializable, Delayed {
+public class NotifyParam implements Serializable, Delayed {
 
     private long id;
 
