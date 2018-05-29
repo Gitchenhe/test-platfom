@@ -17,6 +17,7 @@
         <module>test-platform-service</module>
         <module>test-platform-springboot</module>
         <module>test-platform-conturrent</module>
+        <module>test-platform-nio</module>
     </modules>
 
     <parent>

@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="proxyDBObject" class="com.chenhe.factorybean.ProxyDBObject">
         <property name="currentDB" value="mysql"/>
+    </bean>
+
+    <context:property-placeholder location="classpath*:db.properties"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${mysql.driver}"/>
+        <property name="url" value="${mysql.url}"/>
+        <property name="username" value="${mysql.userName}"/>
+        <property name="password" value="${mysql.password}" />
+        <property name="minIdle" value="${mysql.minIdle}"/>
+        <property name="maxIdle" value="${mysql.maxIdle}"/>
+        <property name="maxWaitMillis" value="${mysql.maxWait}"/>
+        <property name="maxTotal" value="${mysql.maxTotal}"/>
+        <property name="initialSize" value="${mysql.maxWaitMillis}"/>
+        <property name="defaultCatalog" value="${mysql.defaultCatalog}"/>
+        <property name="cacheState" value="${mysql.cacheState}" />
+        <property name="defaultQueryTimeout" value="${mysql.defaultQueryTimeOut}"/>
+        <property name="enableAutoCommitOnReturn" value="${mysql.enableAutocommitOnReturn}"/>
+        <property name="rollbackOnReturn" value="${mysql.rollbackOnReturn}"/>
     </bean>
 </beans>
