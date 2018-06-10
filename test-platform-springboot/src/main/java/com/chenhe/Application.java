@@ -1,7 +1,6 @@
 package com.chenhe;
 
 import com.chenhe.factorybean.db.MysqlDB;
-import com.chenhe.factorybean.dto.DBEntity;
 import com.chenhe.factorybean.dto.MysqlDBEntity;
 import com.chenhe.listener.MyApplicationEnvironmentPreparedEventListener;
 import com.chenhe.listener.MyApplicationFailedEventListener;
@@ -17,7 +16,7 @@ import org.springframework.context.annotation.ImportResource;
  * @author chenhe
  */
 @SpringBootApplication
-@ImportResource("classpath:/spring/spring.xml")
+@ImportResource("classpath:/spring/spring-datasource.xml")
 public class Application {
 
 	public static void main(String[] args) {

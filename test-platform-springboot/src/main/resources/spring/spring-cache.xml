@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath*:cache.properties"/>
+
+
+    <bean id="redisPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="minIdle" value="${redis.minIdle}"/>
+        <property name="maxTotal" value="${redis.maxActive}"/>
+        <property name="maxWaitMillis" value="${redis.maxWait}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+
+    <bean id="jedisSentinelPool" class="redis.clients.jedis.JedisSentinelPool">
+        <constructor-arg name="masterName" value="${redis.mastername}"/>
+        <constructor-arg name="password" value="${redis.pass}"/>
+        <constructor-arg name="poolConfig" ref="redisPoolConfig"/>
+        <constructor-arg name="timeout" value="${redis.maxWait}"/>
+        <constructor-arg name="sentinels">
+            <set>
+                <value>${redis.host}</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <!--<bean id="redisSentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
+        <constructor-arg name="master" value="mymaster"/>
+        <constructor-arg name="sentinelHostAndPorts">
+            <set>
+                <value>${redis.host}</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <constructor-arg name="sentinelConfig" ref="redisSentinelConfiguration"/>
+    </bean>
+    <bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="jedisConnFactory"/>
+    </bean>-->
+</beans>

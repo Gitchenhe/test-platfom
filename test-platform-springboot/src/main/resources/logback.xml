@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+scan : 当此属性设置为true时,配置文件如果发生改变,将会重新加载,默认值为true
+scanPeriod : 设置检测配置文件是否有修改的时间间隔,如果没有给出默认时间单位,默认是毫秒,当scan为true时,此属性生效,默认间隔1分钟
+debug : 此属性为true时,将打印logback内部日志信息,实时查看logback运行状态,默认值为false
+-->
+<configuration scan="true" scanPeriod="600000" debug="false">
+
+    <!-- 用来定义变量值 -->
+    <property name="contextName" value="test-platform"/>
+    <!-- 用来设置上下文名称,每个logger都关联到logger上下文,默认default,一旦设置不可修改 -->
+    <contextName>${contextName}</contextName>
+
+    <!-- 获取时间戳字符串 datePattern 设置当前时间转换为字符串的模式 -->
+    <timestamp key="bySecond" datePattern="yyyy-MM-dd HH:mm:ss"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldYellow(%thread) | %boldGreen(%logger) | %cyan(%msg%n)"/>
+    <!-- 负责写日志的组件 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 对日志格式化 -->
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="error">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
