@@ -2,6 +2,7 @@ package com.chenhe.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
@@ -17,7 +18,7 @@ public class MyApplicationStartedEventListener implements ApplicationListener<Ap
     @Override
     public void onApplicationEvent(ApplicationStartedEvent applicationStartedEvent) {
         SpringApplication application = applicationStartedEvent.getSpringApplication();
-        //application.setBannerMode(Banner.Mode.LOG);
+        application.setBannerMode(Banner.Mode.OFF);
         logger.info("====onApplicationEvent====");
     }
 }

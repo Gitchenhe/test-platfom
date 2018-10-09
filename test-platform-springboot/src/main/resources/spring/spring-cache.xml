@@ -7,7 +7,7 @@
     <context:property-placeholder location="classpath*:cache.properties"/>
 
 
-    <bean id="redisPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+    <!--<bean id="redisPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}"/>
         <property name="minIdle" value="${redis.minIdle}"/>
         <property name="maxTotal" value="${redis.maxActive}"/>
@@ -26,7 +26,7 @@
             </set>
         </constructor-arg>
     </bean>
-
+-->
     <!--<bean id="redisSentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
         <constructor-arg name="master" value="mymaster"/>
         <constructor-arg name="sentinelHostAndPorts">

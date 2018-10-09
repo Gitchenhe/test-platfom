@@ -16,13 +16,13 @@ public class CustomerBeanPostProcessor implements BeanPostProcessor{
     Logger logger = LoggerFactory.getLogger(CustomerBeanPostProcessor.class);
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        logger.info("=== postProcessAfterInitialization === 当前类:{},beanName:{}",bean,beanName);
+       // logger.info("=== postProcessAfterInitialization === 当前类:{},beanName:{}",bean,beanName);
         return bean;
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        logger.info("=== postProcessBeforeInitialization === 当前类:{},beanName={}",bean,beanName);
+        //logger.info("=== postProcessBeforeInitialization === 当前类:{},beanName={}",bean,beanName);
         if (bean instanceof  User){
             User user = (User)bean;
             user.setNaem("张三");

@@ -1,25 +1,16 @@
 package com.chenhe.redis;
 
-import org.apache.commons.io.IOUtils;
+/*import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DataSourceUtils;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisSentinelPool;
 import redis.clients.jedis.Transaction;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.*;
+import java.util.concurrent.*;*/
 
 /**
  * @author chenhe
@@ -27,7 +18,7 @@ import java.util.concurrent.*;
  * @desc 模拟分布式锁
  **/
 public class DistributedLock {
-    static Logger logger = LoggerFactory.getLogger(DistributedLock.class);
+    /*static Logger logger = LoggerFactory.getLogger(DistributedLock.class);
 
     JedisSentinelPool jedisSentinelPool;
     DataSourceTransactionManager transactionManager;
@@ -40,11 +31,11 @@ public class DistributedLock {
 
 
         DistributedLock lock = new DistributedLock();
-      /*  ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring/spring-cache.xml");
+      *//*  ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring/spring-cache.xml");
         ClassPathXmlApplicationContext context1 = new ClassPathXmlApplicationContext("classpath*:spring/spring-datasource.xml");
         lock.transactionManager = (DataSourceTransactionManager) context1.getBean("transactionManager");
 
-        lock.jedisSentinelPool = (JedisSentinelPool) context.getBean("jedisSentinelPool");*/
+        lock.jedisSentinelPool = (JedisSentinelPool) context.getBean("jedisSentinelPool");*//*
         //Runnable runnable = () -> seckill();
 
 
@@ -126,5 +117,5 @@ public class DistributedLock {
             IOUtils.closeQuietly(jedis);
         }
         return retFlag;
-    }
+    }*/
 }

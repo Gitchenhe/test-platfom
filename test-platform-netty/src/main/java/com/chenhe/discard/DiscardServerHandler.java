@@ -22,7 +22,7 @@ public class DiscardServerHandler extends ChannelHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
             ByteBuf in = (ByteBuf)msg;
-            System.out.println(in.toString(CharsetUtil.UTF_8));
+            System.out.print(in.toString(CharsetUtil.UTF_8));
         }finally {
             ReferenceCountUtil.release(msg);
         }

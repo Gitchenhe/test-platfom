@@ -9,6 +9,7 @@ import com.chenhe.listener.MyApplicationStartedEventListener;
 import com.chenhe.spring.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @SpringBootApplication
 @ImportResource("classpath:/spring/spring-datasource.xml")
-public class Application {
+public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Application.class);

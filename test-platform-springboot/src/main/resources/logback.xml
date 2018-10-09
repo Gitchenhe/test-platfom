@@ -24,7 +24,7 @@ debug : 此属性为true时,将打印logback内部日志信息,实时查看logba
         </encoder>
     </appender>
 
-    <root level="error">
+    <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

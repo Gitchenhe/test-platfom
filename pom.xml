@@ -18,6 +18,9 @@
         <module>test-platform-springboot</module>
         <module>test-platform-conturrent</module>
         <module>test-platform-nio</module>
+        <module>test-platform-dubbo</module>
+        <module>test-platform-netty</module>
+        <module>test-platform-spark</module>
     </modules>
 
     <parent>

@@ -22,7 +22,6 @@ public class TransactionTestServiceImpl implements TransactionTestService {
     @Autowired
     private ExceptionMapper exceptionMapper;
 
-
     @Override
     public void testRequire(TransactionParam param) {
         TransactionTestServiceImpl transactionTestServiceImpl = SpringUtils.getBean(TransactionTestServiceImpl.class);

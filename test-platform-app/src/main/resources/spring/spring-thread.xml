@@ -3,14 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="delayTaskThread" class="com.chenhe.thread.DelayTaskThread">
+    <bean id="messageReadWorker" class="com.chenhe.task.worker.MessageReadWorker">
         <property name="threadName" value="delayTaskThread"/>
     </bean>
 
-    <bean id="threadPool" class="com.chenhe.thread.ThreadPool" init-method="initThread">
+    <bean id="threadPool" class="com.chenhe.task.ThreadPool" init-method="initThread" destroy-method="destroy">
         <property name="threadMap">
             <map>
-               <entry key="delayTaskThread" value="3" />
+               <entry key="messageReadWorker" value="10" />
             </map>
         </property>
     </bean>
